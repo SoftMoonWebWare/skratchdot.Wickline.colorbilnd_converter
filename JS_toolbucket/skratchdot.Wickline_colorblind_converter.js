@@ -123,7 +123,7 @@ RGB_Calc.to.definer.quick.colorblind = {value: toColorBlind, writable: true};   
 RGB_Calc.to.definer.audit.colorblind = {value: auditToColorBlind, writable: true};
 function auditToColorBlind() {return this.convertColor(arguments, toColorBlind, 'colorblind  «Wickline algorithmic»');}
 function toColorBlind(rgb, type, anomalize) {
-	if (type==='tritan'  &&  rgb[0]==0 && rgb[1]==0 && rgb[2]==0)  return this outputRGB(0,0,0);  //catch the NaN bug
+	if (type==='tritan'  &&  rgb[0]==0 && rgb[1]==0 && rgb[2]==0)  return this.outputRGB(0,0,0);  //catch the NaN bug
 	var z, v, n,
 		line, c, slope,
 		yi, dx, dy,
