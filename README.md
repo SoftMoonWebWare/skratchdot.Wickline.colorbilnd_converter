@@ -1,6 +1,6 @@
 # skratchdot.Wickline.colorblind_converter
 
-Colorblind simulation conversion filter for RGB values written by Mathew Wickline.
+Colorblind simulation conversion filter for RGB values, written by Mathew Wickline.
 
 last ported by skratchdot:
 
