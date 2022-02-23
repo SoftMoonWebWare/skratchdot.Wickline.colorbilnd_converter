@@ -1,4 +1,4 @@
-/*  plug-in for SoftMoon.WebWare.RGB_Calc  v1.1 April 5, 2020
+/*  plug-in for SoftMoon.WebWare.RGB_Calc  v1.2 February 17, 2022
  *  Modified by Joe Golembeiski, SoftMoon-WebWare; with
  *  only superficial modifications from the previous contributors.
  *  FAR more than superficial thanks to the previous contributors!
@@ -123,7 +123,7 @@ RGB_Calc.to.definer.quick.colorblind = {value: toColorBlind, writable: true};   
 RGB_Calc.to.definer.audit.colorblind = {value: auditToColorBlind, writable: true};
 function auditToColorBlind() {return this.convertColor(arguments, toColorBlind, 'colorblind  «Wickline algorithmic»');}
 function toColorBlind(rgb, type, anomalize) {
-	if (type==='tritan'  &&  rgb[0]==0 && rgb[1]==0 && rgb[2]==0)  return this.outputRGB(0,0,0);  //catch the NaN bug
+	if (type==='tritan'  &&  rgb[0]==0 && rgb[1]==0 && rgb[2]==0)  return this.outputRGB(0,0,0,rgb[3]);  //catch the NaN bug
 	var z, v, n,
 		line, c, slope,
 		yi, dx, dy,
@@ -142,7 +142,7 @@ function toColorBlind(rgb, type, anomalize) {
 			z.G = (v * z.G + rgb[1]) / n;
 			z.B = (v * z.B + rgb[2]) / n;
 		}
-		return this.outputRGB(z.R, z.G, z.B);
+		return this.outputRGB(z.R, z.G, z.B, rgb[3]);
 	}
 	line = toColorBlind.blinder[type];
 	c = to_xyY(RGB_calc_toXYZ(rgb));
@@ -198,7 +198,7 @@ function toColorBlind(rgb, type, anomalize) {
 		z.B = (v * z.B + rgb[2]) / n;
 	}
 	//
-	return this.outputRGB(z.R, z.G, z.B);
+	return this.outputRGB(z.R, z.G, z.B, rgb[3]);
 };
 
 // xy: coordinates, m: slope, yi: y-intercept
